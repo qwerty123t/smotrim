@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+@font-face {
+    font-family: 'RFDewi';
+    src: url('./RFDewi-Semibold.woff2');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'RFDewi';
+    src: url('./RFDewi-Bold.woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./Inter-Bold.woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('./Inter-Regular.woff2');
+    font-weight: 400;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100svh;
+    max-height: 100vh;
+    max-height: 100svh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'RFDewi-semibold', 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: black;
+}
+
+.scroll {
+    min-height: 192px;
+    max-width: 1408px;
+    width: round(down, 100%, 176px); 
+    position: relative;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    margin-top: -10px;
+    margin-left: 1px;
+}
+
+.gallery {
+    display: flex;
+    height: 100%;
+    margin: auto;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.button {
+    position: absolute;
+    top: 49px;
+    width: 48px;
+    height: 48px;
+    z-index: 2;
+    aspect-ratio: 1;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.leftButton {
+    left: 0;
+    rotate: 180deg;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
+}
+
+.rightButton {
+    right: 0;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, .05);
+}
+
+.button.hidden {
+    opacity: 0;
+}
+
+
+
+
+.person {
+    scroll-snap-align: start;
+    width: 160px;
+    min-height: 192px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    font-family: 'RFDewi', 'Inter', sans-serif; 
+    color: grey;
+}
+
+.person-img {
+    border-radius: 50%;
+    background-color: lightgray;
+    color: lightgray;
+    border: none;
+    width: 144px;
+    height: 144px;
+    aspect-ratio: 1;
+}
+
+.person-name {
+    font-weight: 600;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 12px;
+    color: rgb(12 12 12);
+}
+
+.person-surname {
+    font-weight: 600;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgb(12 12 12);
+}
+
+
+
+
+
+
+
+
+.popover {
+    position: fixed;
+    width: 100%;
+    max-width: 605px;
+    min-height: 624px;
+    height: fit-content;
+    inset: 0px;
+    margin: auto;
+    border: none;
+    border-radius: 16px;
+    padding: 30px;
+    scrollbar-width: none;
+    overflow: hidden;
+    transition:
+        opacity 0.7s,
+        transform 0.7s,
+        overlay 0.7s allow-discrete,
+        display 0.7s allow-discrete;
+}
+
+.popover::backdrop {
+    background-color: rgba(217, 217, 217, 0.7);
+    backdrop-filter: blur(4px);
+    transition:
+        display 0.7s allow-discrete,
+        overlay 0.7s allow-discrete,
+        background-color 0.7s;
+}
+
+/* анимация */
+[popover]:popover-open {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@starting-style {
+    [popover]:popover-open {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+[popover]:popover-open::backdrop {
+    background-color: rgba(217, 217, 217, 0.7);
+}
+
+@starting-style {
+    [popover]:popover-open::backdrop {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.popover-top {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.popover-top-name {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    height: fit-content;
+    margin-left: 32px;
+}
+
+.popover-img {
+    border-radius: 8px;
+    background-color: lightgray;
+    border: none;
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1;
+}
+
+.popover-closeButton {
+    display: flex;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+
+.popover-text {
+    margin-top: 40px;
+    font-size: 16px;
+    font-weight: 400;
+    color: black;
+    font-family: 'Inter', sans-serif;
+    max-height: 304px;
+    scrollbar-width: none;
+    overflow: scroll;
+}
+
