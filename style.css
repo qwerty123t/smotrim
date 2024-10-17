@@ -4,28 +4,27 @@
     padding: 0;
 }
 
-
 @font-face {
     font-family: 'RFDewi';
-    src: url('./RFDewi-Semibold.woff2');
+    src: url('./fonts/RFDewi-Semibold.woff2');
     font-weight: 600;
 }
 
 @font-face {
     font-family: 'RFDewi';
-    src: url('./RFDewi-Bold.woff2');
+    src: url('./fonts/RFDewi-Bold.woff2');
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('./Inter-Bold.woff2');
+    src: url('./fonts/Inter-Bold.woff2');
     font-weight: 700;
 }
 
 @font-face {
     font-family: 'Inter';
-    src: url('./Inter-Regular.woff2');
+    src: url('./fonts/Inter-Regular.woff2');
     font-weight: 400;
 }
 
@@ -163,11 +162,13 @@ body {
     padding: 30px;
     scrollbar-width: none;
     overflow: hidden;
+    opacity: 0;
+    transform: scale(0.9);
     transition:
-        opacity 0.7s,
-        transform 0.7s,
-        overlay 0.7s allow-discrete,
-        display 0.7s allow-discrete;
+        opacity 0.3s,
+        transform 0.3s,
+        overlay 0.3s allow-discrete,
+        display 0.3s allow-discrete;
 }
 
 .popover::backdrop {
@@ -180,24 +181,24 @@ body {
 }
 
 /* анимация */
-[popover]:popover-open {
+.popover:popover-open {
     opacity: 1;
     transform: scale(1);
 }
 
 @starting-style {
-    [popover]:popover-open {
+    .popover:popover-open {
         opacity: 0;
         transform: scale(0.9);
     }
 }
 
-[popover]:popover-open::backdrop {
+.popover:popover-open::backdrop {
     background-color: rgba(217, 217, 217, 0.7);
 }
 
 @starting-style {
-    [popover]:popover-open::backdrop {
+    .popover:popover-open::backdrop {
         background-color: rgba(255, 255, 255, 0.7);
     }
 }
