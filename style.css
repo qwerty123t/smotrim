@@ -250,3 +250,14 @@ body {
     overflow: scroll;
 }
 
+
+@media (width <= 500px) {
+    .popover-top-name {
+        font-size: 25px;
+        margin-left: 20px;
+    }
+    .popover-img {
+        width: 150px;
+        height: 150px;
+    }
+  }
